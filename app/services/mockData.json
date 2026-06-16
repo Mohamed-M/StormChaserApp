@@ -1,0 +1,22 @@
+{
+  "coord": {
+    "lon": -79.3832,
+    "lat": 43.6532
+  },
+  "main": {
+    "temp": 22.34
+  },
+  "weather": [
+    {
+      "id": 802,
+      "main": "Clouds",
+      "description": "Scattered Clouds",
+      "icon": "03d"
+    }
+  ],
+  "wind": {
+    "speed": 3.14,
+    "gust": 5.67
+  },
+  "name": "Toronto"
+}
