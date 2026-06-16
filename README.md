@@ -41,11 +41,12 @@ This is the Storm Chasers App by Mohamed Mohamud (contact@mohamed-m.ca)
 - ✅The ability to navigate between different sections of the app with intuitive UI/UX
 - ⚠️ I couldn't get the data to persist. When I do backend, I usually use an ORM that comes with Rails or Django. I'm not comfortable writing SQL queries and it was time consuming trying to connect my Redux to the AsyncStorage package. When I usually do backend, I just send a payload to a API URL and follow the pattern the backend team uses, not SQL queries. I hope this doesn't hinder my chances.
 - ✅ Mock Data 
-- 
+
 # Bonus Features
 - ✅ Pull To Refresh
 - ✅ Dark Mode Support
 - ✅ Skeleton Screen
+- ✅ Jest Unit Test
 
 
 ## AI Usage
