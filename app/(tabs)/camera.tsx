@@ -23,7 +23,8 @@ export default function StormScreen() {
     const { theme } = useAppTheme();
 
     useEffect(() => {
-        const apiKey = '72ec5b108e49622eafc3a7523608d58a';
+        // Add API KEY
+        const apiKey = '';
         if (currentLocation) {
           const lat = currentLocation.coords.latitude;
           const lon = currentLocation.coords.longitude;
