@@ -19,7 +19,7 @@ This is the Storm Chasers App by Mohamed Mohamud (contact@mohamed-m.ca)
 3. API
 - I used OpenWeatherAPI (https://openweathermap.org/)
 - Add your API key in the (tabs)/_camera.tsx file at line 27
-- I also have a mock data that mimics OpenWeatherAPI response, if needed (line 34 in (tabs)/_camera, comment out the API call and just run the dispatch in line 35, and remove currentLocation dependency  and add mockData dependency instead)
+- I also have a mock data that mimics OpenWeatherAPI response, if needed (line 35 in (tabs)/_camera, comment out the API call and just run the dispatch in line 35, and remove currentLocation dependency in line 36 and instead add mockData dependency instead)
 
 ## Info
 - Expo 54 for cross platform support
