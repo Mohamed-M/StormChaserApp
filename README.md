@@ -2,6 +2,8 @@
 
 This is the Storm Chasers App by Mohamed Mohamud (contact@mohamed-m.ca)
 
+Demo video can be downloaded from this repo (https://github.com/Mohamed-M/StormChaserApp/blob/main/Demo%20-%20Mohamed%20Mohamud%20-%20React%20Native%20Assessment.MOV)
+
 ## Get started
 
 1. Install dependencies
