@@ -24,7 +24,7 @@ export default function StormScreen() {
 
     useEffect(() => {
         // Add API KEY
-        const apiKey = '';
+        const apiKey = '72ec5b108e49622eafc3a7523608d58a';
         if (currentLocation) {
           const lat = currentLocation.coords.latitude;
           const lon = currentLocation.coords.longitude;
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'flex-start'
+        justifyContent: 'center'
     },
     addButtonContainer: {
         marginTop: 20,

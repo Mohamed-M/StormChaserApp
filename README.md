@@ -21,7 +21,7 @@ Demo video can be downloaded from this repo (https://github.com/Mohamed-M/StormC
 3. API
 - I used OpenWeatherAPI (https://openweathermap.org/)
 - Add your API key in the (tabs)/_camera.tsx file at line 27
-- I also have a mock data that mimics OpenWeatherAPI response, if needed (line 35 in (tabs)/_camera, comment out the API call and just run the dispatch in line 35, and remove currentLocation dependency in line 36 and instead add mockData dependency instead)
+- I also have a mock data that mimics OpenWeatherAPI response, if needed (line 35 in (tabs)/_camera.tsx, comment out the API call and just run the dispatch in line 35, and remove currentLocation dependency in line 36 and instead add mockData dependency instead)
 
 ## Info
 - Expo 54 for cross platform support
@@ -45,6 +45,7 @@ Demo video can be downloaded from this repo (https://github.com/Mohamed-M/StormC
   - ✅Date and time 
   - ✅Notes/description 
   - ✅Storm type/classification
+- ✅ Delete storms from the list
 - ✅The ability to navigate between different sections of the app with intuitive UI/UX
 - ⚠️ I couldn't get the data to persist. When I do backend, I usually use an ORM that comes with Rails or Django. I'm not comfortable writing SQL queries and it was time consuming trying to connect my Redux to the AsyncStorage package. When I usually do backend, I just send a payload to a API URL and follow the pattern the backend team uses, not SQL queries. I hope this doesn't hinder my chances.
 - ✅ Mock Data 

@@ -3,7 +3,6 @@ import {useSelector} from "react-redux";
 import {SafeAreaView} from "react-native-safe-area-context";
 import WeatherCard from "@/app/components/WeatherCard";
 import {useEffect, useState} from "react";
-import {useRefetch} from "expo-router/build/rsc/router/host";
 import {useAppTheme} from "@/app/hooks/ThemeProvider";
 import StormSkeleton from "@/app/components/StormSkeleton";
 
