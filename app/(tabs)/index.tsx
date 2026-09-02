@@ -1,18 +1,29 @@
-import {Text, ScrollView, StyleSheet, View} from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "@/app/components/CustomButton";
+import { useAppTheme } from "@/app/hooks/ThemeProvider";
 import { useRouter } from 'expo-router';
-import {useAppTheme} from "@/app/hooks/ThemeProvider";
+import { useVideoPlayer, VideoView } from 'expo-video';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
+
+const videoSource = require('@/assets/videos/storm-video.mp4');
 
 export default function HomeScreen() {
   const router = useRouter();
   const {theme} = useAppTheme();
+  const player = useVideoPlayer(videoSource, player => {
+    player.loop = true;
+    player.play();
+  });
+
   const bgColor = theme === 'light';
 
   return (
       <SafeAreaView style={{ flex: 1, backgroundColor: bgColor ? '#fff' : '#000' }}>
         <ScrollView contentContainerStyle={styles.container}>
-          <View style={styles.container}>
+          <VideoView
+            player={player}
+            />
+          <View style={styles.container}> 
             <Text style={styles.header}>Storm Chaser App</Text>
             <Text style={[styles.intro, { color: bgColor ? '#000' : '#fff'}]}>Storm Chaser application that allows meteorology enthusiasts to track and document weather events</Text>
             <Text style={{ color: bgColor ? '#000' : '#fff'}}>Made by Mohamed Mohamud (contact@mohamed-m.ca)</Text>
