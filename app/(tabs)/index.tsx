@@ -1,7 +1,9 @@
 import CustomButton from "@/app/components/CustomButton";
 import { useAppTheme } from "@/app/hooks/ThemeProvider";
+import { useEvent } from 'expo';
 import { useRouter } from 'expo-router';
 import { useVideoPlayer, VideoView } from 'expo-video';
+import { useEffect } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -10,10 +12,19 @@ const videoSource = require('@/assets/videos/storm-video.mp4');
 export default function HomeScreen() {
   const router = useRouter();
   const {theme} = useAppTheme();
-  const player = useVideoPlayer(videoSource, player => {
+  const player = useVideoPlayer(videoSource, (player) => {
     player.loop = true;
-    player.play();
   });
+
+  const { status } = useEvent(player, 'statusChange', {
+    status: player.status,
+  });
+
+  useEffect(() => {
+    if (status === 'readyToPlay') {
+      player.play();
+    }
+  }, [status, player]);
 
   const bgColor = theme === 'light';
 
@@ -21,7 +32,9 @@ export default function HomeScreen() {
       <SafeAreaView style={{ flex: 1, backgroundColor: bgColor ? '#fff' : '#000' }}>
         <ScrollView contentContainerStyle={styles.container}>
           <VideoView
+            style={styles.video}
             player={player}
+            contentFit="fill"
             />
           <View style={styles.container}> 
             <Text style={styles.header}>Storm Chaser App</Text>
@@ -45,6 +58,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexGrow: 1,
+    },
+    video: {
+      position: 'absolute'
     },
     header: {
         fontSize: 40,
