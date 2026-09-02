@@ -4,7 +4,7 @@ import { useEvent } from 'expo';
 import { useRouter } from 'expo-router';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const videoSource = require('@/assets/videos/storm-video.mp4');
@@ -37,6 +37,14 @@ export default function HomeScreen() {
             contentFit="fill"
             />
           <View style={styles.container}> 
+            <Image
+                source={require('@/assets/images/typhoon.png')}
+                style={{
+                    width: 100,
+                    height: 100,
+                    marginBottom: 20
+                }}
+            />
             <Text style={styles.header}>Storm Chaser App</Text>
             <Text style={[styles.intro, { color: bgColor ? '#000' : '#fff'}]}>Storm Chaser application that allows meteorology enthusiasts to track and document weather events</Text>
               <CustomButton

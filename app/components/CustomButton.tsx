@@ -7,7 +7,7 @@ const CustomButton = ({title, onPress, containerStyles, textStyles, icon}) => {
             style={containerStyles}
             onPress={onPress}
             activeOpacity={0.8}>
-            <View style={{ display: 'flex', alignItems: 'center', flexDirection: 'row'}}>
+            <View style={{ display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'center'}}>
               {icon && (
                 <Ionicons size={28} name="camera-outline" color='red' style={{marginRight: 10}} />
               )}
