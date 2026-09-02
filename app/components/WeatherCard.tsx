@@ -28,15 +28,24 @@ const WeatherCard = ({ weather } : Storm) => {
                 </View>
             )}
             <View>
-                <Text>Current Location: {weather.data.name}</Text>
-                <Text>Date and Time: {new Date(Date.now()).toLocaleDateString()}</Text>
-                <Text>Temperature: {Math.round(weather.data.main.temp)}°</Text>
-                <Text>Conditions: {(weather.data.weather[0].description)}</Text>
-                <Text>Longitude: {weather.data.coord.lon}</Text>
-                <Text>Latitude: {weather.data.coord.lat}</Text>
-                <Text>Wind Speed: {weather.data.wind.speed} m/s</Text>
-                <Text>Wind Pressure: {weather.data.main.pressure} hPa</Text>
-                <Text>Gust: {weather.data.wind.gust} m/s</Text>
+                <Text>
+                  <Text style={styles.attr}>Current Location:</Text> {weather.data.name}</Text>
+                <Text>
+                  <Text style={styles.attr}>Date and Time:</Text> {new Date(Date.now()).toLocaleDateString()}</Text>
+                <Text>
+                  <Text style={styles.attr}>Temperature:</Text> {Math.round(weather.data.main.temp)}°</Text>
+                <Text>
+                  <Text style={styles.attr}>Conditions:</Text> {(weather.data.weather[0].description)}</Text>
+                <Text>
+                  <Text style={styles.attr}>Longitude:</Text> {weather.data.coord.lon}</Text>
+                <Text>
+                  <Text style={styles.attr}>Latitude:</Text> {weather.data.coord.lat}</Text>
+                <Text>
+                  <Text style={styles.attr}>Wind Speed:</Text> {weather.data.wind.speed} m/s</Text>
+                <Text>
+                  <Text style={styles.attr}>Wind Pressure:</Text> {weather.data.main.pressure} hPa</Text>
+                <Text>
+                  <Text style={styles.attr}>Gust:</Text> {weather.data.wind.gust} m/s</Text>
             </View>
 
             {weather.image !== undefined && (
@@ -53,13 +62,16 @@ const WeatherCard = ({ weather } : Storm) => {
 
 const styles = StyleSheet.create({
     container: {
-        gap: 40,
+        gap: 20,
         backgroundColor: '#fff',
         paddingVertical: 20,
         paddingHorizontal: 20,
         borderWidth: 1,
         borderColor: 'lightgray',
         marginBottom: 20
+    },
+    attr: {
+      fontWeight: 'bold'
     },
     removeButtonContainer: {
         padding: 20,
