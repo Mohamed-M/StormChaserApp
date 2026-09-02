@@ -4,7 +4,7 @@ import { useEvent } from 'expo';
 import { useRouter } from 'expo-router';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { useEffect } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const videoSource = require('@/assets/videos/storm-video.mp4');
@@ -30,7 +30,7 @@ export default function HomeScreen() {
 
   return (
       <SafeAreaView style={{ flex: 1, backgroundColor: bgColor ? '#fff' : '#000' }}>
-        <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.container}>
           <VideoView
             style={styles.video}
             player={player}
@@ -47,7 +47,7 @@ export default function HomeScreen() {
                   onPress={()=> router.replace('/camera')}
               />
           </View>
-        </ScrollView>
+        </View>
       </SafeAreaView>
   );
 }
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
         flexGrow: 1,
     },
     video: {
-      position: 'absolute'
+      position: 'absolute',
+      opacity: .2
     },
     header: {
         fontSize: 40,
