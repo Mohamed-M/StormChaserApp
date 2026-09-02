@@ -1,17 +1,15 @@
-import {Button, Text, View, StyleSheet} from 'react-native';
-import { CameraView, useCameraPermissions } from 'expo-camera';
-import {useDispatch, useSelector} from "react-redux";
-import { useRef } from "react";
-import useGeoLocation from "@/app/hooks/useGeoLocation";
-import {useEffect} from "react";
-import {fetchWeather} from "@/app/services/weatherSlice";
-import mockData from "@/app/services/mockData.json";
-import {addToStorms} from "@/app/services/stormSlice";
-import WeatherCard from "@/app/components/WeatherCard";
 import CustomButton from "@/app/components/CustomButton";
-import {SafeAreaView} from "react-native-safe-area-context";
 import StormSkeleton from "@/app/components/StormSkeleton";
-import {useAppTheme} from "@/app/hooks/ThemeProvider";
+import WeatherCard from "@/app/components/WeatherCard";
+import { useAppTheme } from "@/app/hooks/ThemeProvider";
+import useGeoLocation from "@/app/hooks/useGeoLocation";
+import { addToStorms } from "@/app/services/stormSlice";
+import { fetchWeather } from "@/app/services/weatherSlice";
+import { CameraView, useCameraPermissions } from 'expo-camera';
+import { useEffect, useRef } from "react";
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useDispatch, useSelector } from "react-redux";
 
 
 export default function StormScreen() {
@@ -102,6 +100,7 @@ export default function StormScreen() {
                                 containerStyles={[styles.addButtonContainer, { backgroundColor: theme === 'light' ? "#FF0000" : '#000'}]}
                                 textStyles={styles.addButtonText}
                                 title="Add to Storms"
+                                icon={false}
                                 onPress={addToStormsList}
                             />
                         </View>
@@ -115,6 +114,7 @@ export default function StormScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingHorizontal: 20,
         alignItems: 'center',
         justifyContent: 'center'
     },

@@ -1,12 +1,18 @@
-import {Text, TouchableOpacity, View} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { Text, TouchableOpacity, View } from 'react-native';
 
-const CustomButton = ({title, onPress, containerStyles, textStyles}) => {
+const CustomButton = ({title, onPress, containerStyles, textStyles, icon}) => {
     return (
         <TouchableOpacity
             style={containerStyles}
             onPress={onPress}
             activeOpacity={0.8}>
-            <Text style={textStyles}>{title}</Text>
+            <View style={{ display: 'flex', alignItems: 'center', flexDirection: 'row'}}>
+              {icon && (
+                <Ionicons size={28} name="camera-outline" color='red' style={{marginRight: 10}} />
+              )}
+              <Text style={textStyles}>{title}</Text>
+            </View>
         </TouchableOpacity>
 
     )

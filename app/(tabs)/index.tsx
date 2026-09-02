@@ -39,11 +39,11 @@ export default function HomeScreen() {
           <View style={styles.container}> 
             <Text style={styles.header}>Storm Chaser App</Text>
             <Text style={[styles.intro, { color: bgColor ? '#000' : '#fff'}]}>Storm Chaser application that allows meteorology enthusiasts to track and document weather events</Text>
-            <Text style={{ color: bgColor ? '#000' : '#fff'}}>Made by Mohamed Mohamud (contact@mohamed-m.ca)</Text>
               <CustomButton
                   containerStyles={styles.cameraButtonContainer}
                   textStyles={styles.cameraButtonText}
                   title="Camera"
+                  icon={true}
                   onPress={()=> router.replace('/camera')}
               />
           </View>
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexGrow: 1,
+        paddingHorizontal: 10,
     },
     video: {
       position: 'absolute',
@@ -74,9 +75,8 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     cameraButtonContainer: {
-        backgroundColor: 'white',
-        paddingVertical: 20,
-        paddingHorizontal: 40,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
         marginTop: 20,
         borderRadius: 20,
         borderColor: 'red',

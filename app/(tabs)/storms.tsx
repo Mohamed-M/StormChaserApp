@@ -1,10 +1,10 @@
-import {FlatList, Text, View, StyleSheet, RefreshControl} from 'react-native';
-import {useSelector} from "react-redux";
-import {SafeAreaView} from "react-native-safe-area-context";
-import WeatherCard from "@/app/components/WeatherCard";
-import {useEffect, useState} from "react";
-import {useAppTheme} from "@/app/hooks/ThemeProvider";
 import StormSkeleton from "@/app/components/StormSkeleton";
+import WeatherCard from "@/app/components/WeatherCard";
+import { useAppTheme } from "@/app/hooks/ThemeProvider";
+import { useEffect, useState } from "react";
+import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useSelector } from "react-redux";
 
 export default function StormScreen() {
   const [refreshing, setRefreshing] = useState(false)
@@ -56,6 +56,7 @@ export default function StormScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        padding: 20,
         alignItems: 'center',
         justifyContent: 'center',
     }
