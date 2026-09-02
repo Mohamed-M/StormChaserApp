@@ -1,9 +1,9 @@
-import {Text, View, StyleSheet, Image} from "react-native";
-import {Storm} from "@/app/models/WeatherData";
 import CustomButton from "@/app/components/CustomButton";
-import {useAppTheme} from "@/app/hooks/ThemeProvider";
-import {useDispatch} from "react-redux";
-import {removeFromStorms} from "@/app/services/stormSlice";
+import { useAppTheme } from "@/app/hooks/ThemeProvider";
+import { Storm } from "@/app/models/WeatherData";
+import { removeFromStorms } from "@/app/services/stormSlice";
+import { Image, StyleSheet, Text, View } from "react-native";
+import { useDispatch } from "react-redux";
 
 
 const WeatherCard = ({ weather } : Storm) => {
@@ -29,7 +29,7 @@ const WeatherCard = ({ weather } : Storm) => {
             )}
             <View>
                 <Text>Current Location: {weather.data.name}</Text>
-                <Text>Date and Time: {new Date(Date.now()).toString()}</Text>
+                <Text>Date and Time: {new Date(Date.now()).toLocaleDateString()}</Text>
                 <Text>Temperature: {Math.round(weather.data.main.temp)}°</Text>
                 <Text>Conditions: {(weather.data.weather[0].description)}</Text>
                 <Text>Longitude: {weather.data.coord.lon}</Text>
@@ -54,7 +54,6 @@ const WeatherCard = ({ weather } : Storm) => {
 const styles = StyleSheet.create({
     container: {
         gap: 40,
-        alignItems: "center",
         backgroundColor: '#fff',
         paddingVertical: 20,
         paddingHorizontal: 20,

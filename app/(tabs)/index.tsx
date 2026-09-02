@@ -14,6 +14,7 @@ export default function HomeScreen() {
   const {theme} = useAppTheme();
   const player = useVideoPlayer(videoSource, (player) => {
     player.loop = true;
+    player.muted = true;
   });
 
   const { status } = useEvent(player, 'statusChange', {
@@ -45,7 +46,7 @@ export default function HomeScreen() {
                     marginBottom: 20
                 }}
             />
-            <Text style={styles.header}>Storm Chaser App</Text>
+            <Text style={styles.header}>Storm Chaser</Text>
             <Text style={[styles.intro, { color: bgColor ? '#000' : '#fff'}]}>Storm Chaser application that allows meteorology enthusiasts to track and document weather events</Text>
               <CustomButton
                   containerStyles={styles.cameraButtonContainer}
@@ -59,7 +60,6 @@ export default function HomeScreen() {
       </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
     container: {
