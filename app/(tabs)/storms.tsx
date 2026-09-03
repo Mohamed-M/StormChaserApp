@@ -38,6 +38,7 @@ export default function StormScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: theme ===  'light' ? "#FFF" : "#000"}]}>
+        <Text style={{fontSize: 40, marginBottom: 40, fontWeight: 'bold', alignSelf: 'flex-start'}}>Storms List</Text>
         {loading ? <StormSkeleton /> : (
              <FlatList
               data={storms}
