@@ -6,7 +6,7 @@ export default function StormScreen() {
     const { theme, toggleTheme } = useAppTheme();
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: theme === 'light' ? '#FFF' : '#000'}}>
-            <Text style={{fontSize: 40, padding: 20, fontWeight: 'bold', alignSelf: 'flex-start'}}>Settings</Text>
+            <Text style={{fontSize: 40, padding: 20, fontWeight: 'bold', alignSelf: 'flex-start', color: theme === 'light' ? '#000' : '#FFF'}}>Settings</Text>
 
             <View style={styles.container}>
                 <Text style={{ color: theme === 'light' ? '#000' : '#FFF'}}>Theme Settings: {theme}</Text>
