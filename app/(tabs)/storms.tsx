@@ -29,6 +29,7 @@ export default function StormScreen() {
   if (storms.length < 1) {
       return (
           <SafeAreaView style={{ flex: 1, backgroundColor: theme ===  'light' ? "#FFF" : "#000" }}>
+          <Text style={{fontSize: 40, padding: 20, fontWeight: 'bold', alignSelf: 'flex-start', color: theme === 'light' ? '#000' : '#fff'}}>Storms List</Text>
               <View style={styles.container}>
                   <Text style={{ color: theme ===  'light' ? "#000" : "#fff" }}>No Storms Saved</Text>
               </View>
@@ -37,8 +38,9 @@ export default function StormScreen() {
   }
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: theme ===  'light' ? "#FFF" : "#000"}]}>
-        <Text style={{fontSize: 40, marginBottom: 40, fontWeight: 'bold', alignSelf: 'flex-start', color: theme === 'light' ? '#000' : '#fff'}}>Storms List</Text>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme ===  'light' ? "#FFF" : "#000"}}>
+        <Text style={{fontSize: 40, padding: 20, fontWeight: 'bold', alignSelf: 'flex-start', color: theme === 'light' ? '#000' : '#fff'}}>Storms List</Text>
+        <View style={styles.container}>
         {loading ? <StormSkeleton /> : (
              <FlatList
               data={storms}
@@ -50,6 +52,7 @@ export default function StormScreen() {
                 )}
                 refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />} />
             )}
+            </View>
     </SafeAreaView>
   );
 }
