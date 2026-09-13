@@ -1,17 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import {WeatherData} from "@/app/models/WeatherData";
-
-export const fetchWeather = createAsyncThunk(
-    'fetch-weather',
-    async (payload: string | WeatherData) => {
-        if (typeof payload === 'string') {
-            const response = await fetch(payload);
-            return response.json();
-        }
-
-        return payload;
-    }
-);
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchWeather } from '@/app/redux/actions/weatherActions';
 
 const weatherSlice = createSlice({
     name: 'weather',
@@ -34,5 +22,4 @@ const weatherSlice = createSlice({
     }
 });
 
-export default weatherSlice;
-
+export default weatherSlice.reducer;

@@ -2,7 +2,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import {Provider} from 'react-redux';
 import 'react-native-reanimated';
-import {store} from "@/app/services/store";
+import {store} from "@/app/redux/store";
 import { ThemeProvider } from "@/app/hooks/ThemeProvider";
 import 'react-native-reanimated';
 

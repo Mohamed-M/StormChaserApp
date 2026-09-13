@@ -1,5 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {Alert, Platform} from "react-native";
+import { createSlice } from "@reduxjs/toolkit";
 
 const stormsSlice = createSlice({
     name: 'storms',
@@ -19,4 +18,4 @@ const stormsSlice = createSlice({
 })
 
 export const { addToStorms, removeFromStorms } = stormsSlice.actions;
-export default stormsSlice;
+export default stormsSlice.reducer;
