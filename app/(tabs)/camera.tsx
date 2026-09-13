@@ -3,7 +3,7 @@ import StormSkeleton from "@/app/components/StormSkeleton";
 import WeatherCard from "@/app/components/WeatherCard";
 import { useAppTheme } from "@/app/hooks/ThemeProvider";
 import useGeoLocation from "@/app/hooks/useGeoLocation";
-import { addToStorms } from "@/app/redux/reducers/stormReducer";
+import { addStorm } from "@/app/redux/reducers/stormReducer";
 import { fetchWeather } from "@/app/redux/actions/weatherActions";
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useEffect, useRef } from "react";
@@ -45,7 +45,7 @@ export default function StormScreen() {
                 skipProcessing: true
             })
 
-            dispatch(addToStorms({
+            dispatch(addStorm({
                 id: Date.now(),
                 image: photo.uri,
                 data: weather.data,

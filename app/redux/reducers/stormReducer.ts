@@ -6,10 +6,10 @@ const stormsSlice = createSlice({
         storms: []
     },
     reducers: {
-        addToStorms: (state, action) => {
+        addStorm: (state, action) => {
             state.storms.unshift(action.payload)
         },
-        removeFromStorms: (state, action) => {
+        removeStorm: (state, action) => {
             state.storms = state.storms.filter((item) => {
                 return item.id !== action.payload.id
             });
@@ -17,5 +17,5 @@ const stormsSlice = createSlice({
     },
 })
 
-export const { addToStorms, removeFromStorms } = stormsSlice.actions;
+export const { addStorm, removeStorm } = stormsSlice.actions;
 export default stormsSlice.reducer;

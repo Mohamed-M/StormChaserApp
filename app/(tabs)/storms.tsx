@@ -8,9 +8,11 @@ import { useSelector } from "react-redux";
 
 export default function StormScreen() {
   const [refreshing, setRefreshing] = useState(false)
-  const { storms } = useSelector(state => state.storms);
+  const { storms } = useSelector(state => state.storm);
   const { theme } = useAppTheme();
   const [loading, setLoading] = useState(true);
+
+  console.log('storms', storms);
 
   useEffect(() => {
     if (storms.length > 0) {

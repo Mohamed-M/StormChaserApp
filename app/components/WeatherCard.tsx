@@ -1,7 +1,7 @@
 import CustomButton from "@/app/components/CustomButton";
 import { useAppTheme } from "@/app/hooks/ThemeProvider";
 import { Storm } from "@/app/models/WeatherData";
-// import { removeFromStorms } from "@/app/redux/stormSlice";
+import { removeStorm } from "@/app/redux/reducers/stormReducer";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
 
@@ -11,7 +11,7 @@ const WeatherCard = ({ weather } : Storm) => {
     const dispatch = useDispatch();
 
     const remove = (weather: Storm) => {
-        // dispatch(removeFromStorms(weather))
+        dispatch(removeStorm(weather))
     }
 
     return (
