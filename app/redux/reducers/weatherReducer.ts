@@ -1,12 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchWeather } from '@/app/redux/actions/weatherActions';
+import { WeatherData } from '@/app/models/WeatherData';
+
+interface WeatherState {
+  data: WeatherData,
+  fetchStatus: 'success' | 'loading' | 'error'
+}
+
+const initialState: WeatherState = {
+  data: {
+    coord: {
+        lon: 3,
+        lat: 7,
+    },
+    main: {
+        temp: 0
+    },
+    weather: [{
+        id: 1,
+        main: 'Clouds',
+        description: "Clouds",
+        icon: '04n',
+    }],
+    wind: {
+        speed: 23,
+        gust: 21,
+    },
+    name: 'Hamilton'
+  },
+  fetchStatus: 'loading'
+}
+
 
 const weatherSlice = createSlice({
     name: 'weather',
-    initialState: {
-        data: null,
-        fetchStatus: ''
-    },
+    initialState,
     reducers: {},
     extraReducers:(builder) => {
         builder
