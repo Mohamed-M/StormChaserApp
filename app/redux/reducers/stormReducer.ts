@@ -25,7 +25,7 @@ const stormsSlice = createSlice({
         },
         removeStorm: (state, action) => {
             state.storms = state.storms.filter((item) => {
-                return item.id !== action.payload.id
+                return item.id !== action.payload
             });
         }
     },

@@ -86,7 +86,7 @@ export default function CameraScreen() {
             <CameraView
                 ref={cameraRef}
                 facing="back"
-                style={StyleSheet.absoluteFillObject}
+                style={StyleSheet.absoluteFill}
             />
             <View style={styles.container}>
                 {(status === 'loading') && (

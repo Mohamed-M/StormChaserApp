@@ -25,3 +25,9 @@ export interface Storm {
     createdAt: string;
     weatherData: WeatherData;
 }
+
+export interface WeatherCardProps {
+  weather: WeatherData,
+  image?: string
+  id?: number
+}

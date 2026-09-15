@@ -51,7 +51,8 @@ export default function StormScreen() {
                 <View>
                   <WeatherCard 
                     weather={item.data}
-                    image={item.image} />
+                    image={item.image} 
+                    id={item.id} />
                 </View>
                 )}
                 refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />} />
