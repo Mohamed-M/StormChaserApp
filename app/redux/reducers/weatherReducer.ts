@@ -14,7 +14,8 @@ const initialState: WeatherState = {
         lat: 7,
     },
     main: {
-        temp: 0
+        temp: 0,
+        pressure: 0
     },
     weather: [{
         id: 1,

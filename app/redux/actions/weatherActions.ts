@@ -3,13 +3,19 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchWeather = createAsyncThunk<WeatherData, string>(
   "weather/fetchWeather",
-  async (url) => {
-    const response = await fetch(url);
+  async (url, thunkAPI) => {
+    try {
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch weather");
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch weather");
+      }
+
+      return response.json();
+    } catch(error) {
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+      return thunkAPI.rejectWithValue(errorMessage);
     }
-
-    return response.json();
   }
 );
