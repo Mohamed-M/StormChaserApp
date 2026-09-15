@@ -6,7 +6,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
 
 
-const WeatherCard = ({ weather }) => {
+const WeatherCard = ({ weather, image }) => {
     const { theme } = useAppTheme();
     const dispatch = useDispatch();
 
@@ -16,10 +16,10 @@ const WeatherCard = ({ weather }) => {
 
     return (
         <View style={styles.container}>
-            {weather.image !== undefined && (
+            {image !== undefined && (
                 <View>
                     <Image
-                        source={{ uri: weather.image }}
+                        source={{ uri: image }}
                         style={{
                             width: 300,
                             height: 200

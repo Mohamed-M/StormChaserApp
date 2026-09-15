@@ -49,7 +49,9 @@ export default function StormScreen() {
               keyExtractor={(item) => item.id}
               renderItem={({ item }) => (
                 <View>
-                  <WeatherCard weather={item.data} />
+                  <WeatherCard 
+                    weather={item.data}
+                    image={item.image} />
                 </View>
                 )}
                 refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />} />
