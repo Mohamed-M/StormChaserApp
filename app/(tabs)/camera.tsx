@@ -3,7 +3,7 @@ import StormSkeleton from "@/app/components/StormSkeleton";
 import WeatherCard from "@/app/components/WeatherCard";
 import { useAppTheme } from "@/app/hooks/ThemeProvider";
 import useGeoLocation from "@/app/hooks/useGeoLocation";
-import { addStorm } from "@/app/redux/reducers/stormReducer";
+import { addStorm, Storm } from "@/app/redux/reducers/stormReducer";
 import { fetchWeather } from "@/app/redux/actions/weatherActions";
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useEffect, useRef } from "react";
@@ -12,13 +12,17 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
 import { useWeather } from "../redux/hooks/useWeather";
 import { AppDispatch } from "../redux/store";
+import { useStorms } from "../redux/hooks/useStorms";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function CameraScreen() {
     const [permission, requestPermission] = useCameraPermissions();
     const { weather, status } = useWeather();
+    const { storms } = useStorms();
     const dispatch = useDispatch<AppDispatch>();
     const cameraRef = useRef<CameraView>(null);
+    
     const { currentLocation } = useGeoLocation();
     const { theme } = useAppTheme();
 
@@ -35,6 +39,10 @@ export default function CameraScreen() {
         // dispatch(fetchWeather(mockData));
     }, [currentLocation]);
 
+    const saveStorms = async (storms: Storm[]) => {
+      await AsyncStorage.setItem('storms', JSON.stringify(storms));
+    };
+
     const addToStormsList = async () => {
         try {
             if (!cameraRef.current) {
@@ -47,17 +55,28 @@ export default function CameraScreen() {
                 skipProcessing: true
             })
 
-            dispatch(addStorm({
+            const storm = {
                 id: Date.now(),
                 image: photo.uri,
                 data: weather,
                 capturedAt: new Date().toISOString()
-            }))
+            }
+
+            dispatch(addStorm(storm))
+            
+            const updatedStorms = [storm, ...storms];
+
+            await AsyncStorage.setItem(
+              'storms',
+              JSON.stringify(updatedStorms)
+            );
         }
         catch (error) {
             console.log(error)
         }
     }
+
+
 
     if (!permission) return <View />;
 

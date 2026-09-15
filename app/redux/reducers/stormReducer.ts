@@ -1,5 +1,5 @@
 import { WeatherData } from "@/app/models/WeatherData";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Storm {
   id: number,
@@ -20,16 +20,19 @@ const stormsSlice = createSlice({
     name: 'storms',
     initialState,
     reducers: {
-        addStorm: (state, action) => {
-            state.storms.unshift(action.payload)
-        },
-        removeStorm: (state, action) => {
-            state.storms = state.storms.filter((item) => {
-                return item.id !== action.payload
-            });
-        }
+      addStorm: (state, action: PayloadAction<Storm>) => {
+          state.storms.unshift(action.payload)
+      },
+      removeStorm: (state, action: PayloadAction<number>) => {
+          state.storms = state.storms.filter((item) => {
+              return item.id !== action.payload
+          });
+      },
+      setStorms: (state, action: PayloadAction<Storm[]>) => {
+      state.storms = action.payload;
+      },
     },
 })
 
-export const { addStorm, removeStorm } = stormsSlice.actions;
+export const { addStorm, removeStorm, setStorms } = stormsSlice.actions;
 export default stormsSlice.reducer;

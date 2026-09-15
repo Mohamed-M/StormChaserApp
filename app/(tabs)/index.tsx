@@ -6,6 +6,10 @@ import { useVideoPlayer, VideoView } from 'expo-video';
 import { useEffect } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { setStorms } from "../redux/reducers/stormReducer";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../redux/store";
 
 const videoSource = require('@/assets/videos/storm-video.mp4');
 
@@ -16,6 +20,7 @@ export default function HomeScreen() {
     player.loop = true;
     player.muted = true;
   });
+  const dispatch = useDispatch<AppDispatch>();
 
   const { status } = useEvent(player, 'statusChange', {
     status: player.status,
@@ -26,6 +31,22 @@ export default function HomeScreen() {
       player.play();
     }
   }, [status, player]);
+
+  useEffect(() => {
+  const loadStorms = async () => {
+    try {
+      const storedStorms = await AsyncStorage.getItem('storms');
+
+      if (storedStorms) {
+        dispatch(setStorms(JSON.parse(storedStorms)));
+      }
+    } catch (error) {
+      console.log('Failed to load storms:', error);
+    }
+  };
+
+  loadStorms();
+}, [dispatch]);
 
   const bgColor = theme === 'light';
 
