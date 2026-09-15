@@ -46,7 +46,7 @@ export default function StormScreen() {
         {loading ? <StormSkeleton /> : (
              <FlatList
               data={storms}
-              keyExtractor={(item) => item.id}
+              keyExtractor={(item) => item.id.toString()}
               renderItem={({ item }) => (
                 <View>
                   <WeatherCard 

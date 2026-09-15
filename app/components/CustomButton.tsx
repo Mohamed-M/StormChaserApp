@@ -1,7 +1,15 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { StyleProp, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
 
-const CustomButton = ({title, onPress, containerStyles, textStyles, icon}) => {
+interface CustomButtonProps {
+  title: string,
+  onPress: () => void,
+  containerStyles: StyleProp<ViewStyle>,
+  textStyles: StyleProp<TextStyle>,
+  icon?: boolean
+}
+
+const CustomButton = ({title, onPress, containerStyles, textStyles, icon} : CustomButtonProps) => {
     return (
         <TouchableOpacity
             style={containerStyles}

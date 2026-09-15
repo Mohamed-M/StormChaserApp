@@ -5,6 +5,7 @@ export interface WeatherData {
     };
     main: {
         temp: number;
+        pressure: number;
     };
     weather: {
         id: number;

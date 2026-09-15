@@ -11,13 +11,14 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
 import { useWeather } from "../redux/hooks/useWeather";
+import { AppDispatch } from "../redux/store";
 
 
 export default function CameraScreen() {
     const [permission, requestPermission] = useCameraPermissions();
     const { weather, status } = useWeather();
-    const dispatch = useDispatch();
-    const cameraRef = useRef(null);
+    const dispatch = useDispatch<AppDispatch>();
+    const cameraRef = useRef<CameraView>(null);
     const { currentLocation } = useGeoLocation();
     const { theme } = useAppTheme();
 

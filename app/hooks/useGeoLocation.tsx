@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import * as Location from "expo-location";
 
 const useGeoLocation = () => {
-    const [currentLocation, setCurrentLocation] = useState(null);
+    const [currentLocation, setCurrentLocation] = useState<Location.LocationObject | null>(null);
     const [errorMsg, setErrorMsg] = useState('');
 
     useEffect(() => {

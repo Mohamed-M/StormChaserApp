@@ -1,6 +1,6 @@
 import CustomButton from "@/app/components/CustomButton";
 import { useAppTheme } from "@/app/hooks/ThemeProvider";
-import { Storm, WeatherCardProps } from "@/app/models/WeatherData";
+import { WeatherCardProps } from "@/app/models/WeatherData";
 import { removeStorm } from "@/app/redux/reducers/stormReducer";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
@@ -11,7 +11,7 @@ const WeatherCard = ({ weather, image, id }: WeatherCardProps) => {
     const dispatch = useDispatch();
 
     const remove = (id: number) => {
-        dispatch(removeStorm(id))
+      dispatch(removeStorm(id))
     }
 
     return (
@@ -48,7 +48,7 @@ const WeatherCard = ({ weather, image, id }: WeatherCardProps) => {
                   <Text style={styles.attr}>Gust:</Text> {weather.wind.gust} m/s</Text>
             </View>
 
-            {image !== undefined && (
+            {image !== undefined && id !== undefined && (
                 <CustomButton
                     containerStyles={[styles.removeButtonContainer, { backgroundColor: theme === 'light' ? "#FF0000" : '#000'}]}
                     textStyles={styles.removeButtonText}
