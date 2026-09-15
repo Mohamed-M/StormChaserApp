@@ -6,7 +6,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
 
 
-const WeatherCard = ({ weather } : Storm) => {
+const WeatherCard = ({ weather }) => {
     const { theme } = useAppTheme();
     const dispatch = useDispatch();
 
@@ -29,23 +29,23 @@ const WeatherCard = ({ weather } : Storm) => {
             )}
             <View>
                 <Text>
-                  <Text style={styles.attr}>Current Location:</Text> {weather.data.name}</Text>
+                  <Text style={styles.attr}>Current Location:</Text> {weather.name}</Text>
                 <Text>
                   <Text style={styles.attr}>Date and Time:</Text> {new Date(Date.now()).toLocaleDateString()}</Text>
                 <Text>
-                  <Text style={styles.attr}>Temperature:</Text> {Math.round(weather.data.main.temp)}°</Text>
+                  <Text style={styles.attr}>Temperature:</Text> {Math.round(weather.main.temp)}°</Text>
                 <Text>
-                  <Text style={styles.attr}>Conditions:</Text> {(weather.data.weather[0].description)}</Text>
+                  <Text style={styles.attr}>Conditions:</Text> {(weather.weather[0].description)}</Text>
                 <Text>
-                  <Text style={styles.attr}>Longitude:</Text> {weather.data.coord.lon}</Text>
+                  <Text style={styles.attr}>Longitude:</Text> {weather.coord.lon}</Text>
                 <Text>
-                  <Text style={styles.attr}>Latitude:</Text> {weather.data.coord.lat}</Text>
+                  <Text style={styles.attr}>Latitude:</Text> {weather.coord.lat}</Text>
                 <Text>
-                  <Text style={styles.attr}>Wind Speed:</Text> {weather.data.wind.speed} m/s</Text>
+                  <Text style={styles.attr}>Wind Speed:</Text> {weather.wind.speed} m/s</Text>
                 <Text>
-                  <Text style={styles.attr}>Wind Pressure:</Text> {weather.data.main.pressure} hPa</Text>
+                  <Text style={styles.attr}>Wind Pressure:</Text> {weather.main.pressure} hPa</Text>
                 <Text>
-                  <Text style={styles.attr}>Gust:</Text> {weather.data.wind.gust} m/s</Text>
+                  <Text style={styles.attr}>Gust:</Text> {weather.wind.gust} m/s</Text>
             </View>
 
             {weather.image !== undefined && (

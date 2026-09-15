@@ -10,11 +10,12 @@ import { useEffect, useRef } from "react";
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
+import { useWeather } from "../redux/hooks/useWeather";
 
 
-export default function StormScreen() {
+export default function CameraScreen() {
     const [permission, requestPermission] = useCameraPermissions();
-    const weather = useSelector((state) => state.weather);
+    const { weather, status } = useWeather();
     const dispatch = useDispatch();
     const cameraRef = useRef(null);
     const { currentLocation } = useGeoLocation();
@@ -48,7 +49,7 @@ export default function StormScreen() {
             dispatch(addStorm({
                 id: Date.now(),
                 image: photo.uri,
-                data: weather.data,
+                data: weather,
                 capturedAt: new Date().toISOString()
             }))
         }
@@ -88,11 +89,11 @@ export default function StormScreen() {
                 style={StyleSheet.absoluteFillObject}
             />
             <View style={styles.container}>
-                {(weather.fetchStatus === 'loading' || weather.fetchStatus === '') && (
+                {(status === 'loading') && (
                     <StormSkeleton />
                 )}
 
-                {weather.fetchStatus === 'success' && (
+                {status === 'success' && (
                     <>
                         <View>
                             <WeatherCard weather={weather} />

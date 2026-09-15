@@ -43,7 +43,8 @@ const weatherSlice = createSlice({
                 state.fetchStatus = 'success';
             })
             .addCase(fetchWeather.pending,  (state) => {
-                state.fetchStatus = 'loading' })
+                state.fetchStatus = 'loading' 
+            })
             .addCase(fetchWeather.rejected, (state => {
                 state.fetchStatus = 'error'
             }))

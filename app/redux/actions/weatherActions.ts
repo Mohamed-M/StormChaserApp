@@ -1,14 +1,15 @@
 import { WeatherData } from "@/app/models/WeatherData";
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchWeather = createAsyncThunk(
-    'fetch-weather',
-    async (payload: string | WeatherData) => {
-        if (typeof payload === 'string') {
-            const response = await fetch(payload);
-            return response.json();
-        }
+export const fetchWeather = createAsyncThunk<WeatherData, string>(
+  "weather/fetchWeather",
+  async (url) => {
+    const response = await fetch(url);
 
-        return payload;
+    if (!response.ok) {
+      throw new Error("Failed to fetch weather");
     }
+
+    return response.json();
+  }
 );

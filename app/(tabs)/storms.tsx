@@ -4,11 +4,11 @@ import { useAppTheme } from "@/app/hooks/ThemeProvider";
 import { useEffect, useState } from "react";
 import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useSelector } from "react-redux";
+import { useStorms } from "../redux/hooks/useStorms";
 
 export default function StormScreen() {
   const [refreshing, setRefreshing] = useState(false)
-  const { storms } = useSelector(state => state.storm);
+  const { storms } = useStorms()
   const { theme } = useAppTheme();
   const [loading, setLoading] = useState(true);
 
@@ -49,7 +49,7 @@ export default function StormScreen() {
               keyExtractor={(item) => item.id}
               renderItem={({ item }) => (
                 <View>
-                  <WeatherCard weather={item} />
+                  <WeatherCard weather={item.data} />
                 </View>
                 )}
                 refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />} />
