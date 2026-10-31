@@ -1,6 +1,7 @@
+![Storm Chaser Logo](./assets/images/typhoon.png)
 # Storm Chaser App
 
-This is the Storm Chasers React Native app by Mohamed Mohamud (contact@mohamed-m.ca)
+This is the Storm Chaser React Native app by Mohamed Mohamud | contact@mohamed-m.ca | https://www.mohamed-m.ca
 
 [Demo Video](./StormChaser-Demo-Video.MP4)
 
