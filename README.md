@@ -1,6 +1,9 @@
 # Storm Chaser App
 
-This is the Storm Chasers App by Mohamed Mohamud (contact@mohamed-m.ca)
+This is the Storm Chasers React Native app by Mohamed Mohamud (contact@mohamed-m.ca)
+
+[Demo Video](./StormChaser-Demo-Video.MP4)
+
 
 ## Get started
 
@@ -22,11 +25,11 @@ This is the Storm Chasers App by Mohamed Mohamud (contact@mohamed-m.ca)
 - I also have a mock data that mimics OpenWeatherAPI response, if needed (line 35 in (tabs)/_camera.tsx, comment out the API call and just run the dispatch in line 35, and remove currentLocation dependency in line 36 and instead add mockData dependency instead)
 
 ## Info
-- Expo 54 for cross platform support
-- File-based routing using Stacks and Tabs
+- Expo 58 for cross platform support
+- File-based routing using `Stacks` and `Tabs`
 - Redux Toolkit for state management
-- expo-location for GeoLocation
-- expo-camera for taking the picture
+- `expo-location` for geolocation
+- `expo-camera` for taking the picture
 
 # Features
 - ✅ Fetch and display current weather data based on the device's current location
