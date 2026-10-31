@@ -1,10 +1,26 @@
 ![Storm Chaser Logo](./assets/images/typhoon.png)
 # Storm Chaser App
 
-This is the Storm Chaser React Native app by Mohamed Mohamud | contact@mohamed-m.ca | https://www.mohamed-m.ca
+A cross-platform React Native application designed for storm chasers to monitor local weather conditions, capture storm photographs, and document storm observations in the field.
 
-[Demo Video](./StormChaser-Demo-Video.MP4)
+The app uses device geolocation and the OpenWeather API to retrieve current weather information, while integrating camera functionality to capture photos and attach detailed meteorological and location-based metadata.
 
+[Download Demo Video (MP4)](./StormChaser-Demo-Video.MP4)
+
+## Key Features
+- **Live Weather Data**: Retrieve and display current weather conditions based on the device's location.
+
+- **Storm Documentation**: Capture photographs and record weather conditions, location, GPS coordinates, date, time, notes, and storm classification.
+
+- **Storm Management**: Review and delete documented storm entries.
+
+- **Location Services**: Use device geolocation to provide location-specific weather information.
+
+- **User Experience**: Dark mode support, skeleton loading screens, pull-to-refresh, and intuitive tab-based navigation.
+
+- **Mock Data**: Simulated weather responses for development and testing without requiring an API key.
+
+--- 
 
 ## Get started
 
@@ -25,29 +41,9 @@ This is the Storm Chaser React Native app by Mohamed Mohamud | contact@mohamed-m
 - Add your API key in the (tabs)/_camera.tsx file at line 27
 - I also have a mock data that mimics OpenWeatherAPI response, if needed (line 35 in (tabs)/_camera.tsx, comment out the API call and just run the dispatch in line 35, and remove currentLocation dependency in line 36 and instead add mockData dependency instead)
 
-## Info
-- Expo 58 for cross platform support
+## Tools
+- Expo 58
 - File-based routing using `Stacks` and `Tabs`
 - Redux Toolkit for state management
 - `expo-location` for geolocation
 - `expo-camera` for taking the picture
-
-# Features
-- ✅ Fetch and display current weather data based on the device's current location
-- ✅ Display key meteorological information relevant to storm chasers
-- ✅ Show a "Not found" view if weather data cannot be retrieved
-- ✅ Capture photos using the device camera 
-- ✅Add metadata to photos including: 
-  - ✅Weather conditions 
-  - ✅Location 
-  - ✅coordinates 
-  - ✅Date and time 
-  - ✅Notes/description 
-  - ✅Storm type/classification
-- ✅ Delete storms from the list
-- ✅The ability to navigate between different sections of the app with intuitive UI/UX
-- ✅ Mock Data
-- ✅ Pull To Refresh
-- ✅ Dark Mode Support
-- ✅ Skeleton Screen
-- ✅ Jest Unit Test
